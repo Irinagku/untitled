@@ -7,9 +7,8 @@ public class Address {
     private String zipCode;
     private String country = "USA";
 
-    @Override
-    public String toString(){
-        return street + ", " + city + ", " + " " + zipCode;
+    public String toString() {
+        return street + ", " + city + ", " + state + " " + zipCode;
     }
 
     public String getStreet() {
