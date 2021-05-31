@@ -1,55 +1,75 @@
 package day47_constructors2;
 
 public class Address2 {
-    //encapsulation
-    private String street;
-    private String city;
-    private String state;
-    private String zipCode;
-    private String country = "USA";
 
-    @Override //@Override (annotation)  is optional
-    public String toString() {
-        return street + ", " + city + ", " + state + " " + zipCode;
-    }
+        private String street;
+        private String city;
+        private String state;
+        private String zipCode;
+        private String country = "USA";
+        //constructor method- automatically called
+        public Address2() {
+            System.out.println("Address constructor");
+            street = "123 unknown st";
+            city = "Unknown";
+            state = "Unknown";
+            zipCode = "00000";
+        }
+        //second constructor, overloaded constructor -> provides shortcut to initialize variables
+        //in same statement: ex: Address ad = new Address("123 java st", "Boston", "MA", "43213");
+        public Address2(String street, String city, String state, String zipCode) {
+            setStreet(street);//reuse the code in the setter method
+            this.city = city;
+            this.state = state;
+            this.zipCode = zipCode;
+        }
 
-    public String getStreet() {
-        return street;
-    }
+        public String toString() {
+            return street + ", " + city + ", " + state + " " + zipCode;
+        }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
+        public String getStreet() {
+            return street;
+        }
 
-    public String getCity() {
-        return city;
-    }
+        public void setStreet(String street) {
+            if(street.isEmpty() || street.length() > 50) {
+                System.out.println("ERROR: Invalid street");
+                //System.exit(0);
+            } else {
+                this.street = street;
+            }
+        }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+        public String getCity() {
+            return city;
+        }
 
-    public String getState() {
-        return state;
-    }
+        public void setCity(String city) {
+            this.city = city;
+        }
 
-    public void setState(String state) {
-        this.state = state;
-    }
+        public String getState() {
+            return state;
+        }
 
-    public String getZipCode() {
-        return zipCode;
-    }
+        public void setState(String state) {
+            this.state = state;
+        }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
+        public String getZipCode() {
+            return zipCode;
+        }
 
-    public String getCountry() {
-        return country;
-    }
+        public void setZipCode(String zipCode) {
+            this.zipCode = zipCode;
+        }
 
-    public void setCountry(String country) {
-        this.country = country;
+        public String getCountry() {
+            return country;
+        }
+
+        public void setCountry(String country) {
+            this.country = country;
+        }
     }
-}
